@@ -1,4 +1,4 @@
-import {Ejemplo} from './classes.mjs'; // importar clase
+import { Ejemplo } from './classes.mjs'; // importar clase
 
 let objeto = new Ejemplo("a", "b"); // instancia
 objeto.print(); // metodo
