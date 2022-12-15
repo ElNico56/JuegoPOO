@@ -13,19 +13,19 @@ tri = Triangle.new(
 on :key do |event|
   # puts event.key
   case event.key
-  when "w"
+  when "up"
     tri.y1 -= 10
     tri.y2 -= 10
     tri.y3 -= 10
-  when "a"
+  when "left"
     tri.x1 -= 10
     tri.x2 -= 10
     tri.x3 -= 10
-  when "s"
+  when "down"
     tri.y1 += 10
     tri.y2 += 10
     tri.y3 += 10
-  when "d"
+  when "right"
     tri.x1 += 10
     tri.x2 += 10
     tri.x3 += 10
