@@ -1,4 +1,4 @@
-import { Monster } from './classes.mjs'; // importar clase
+import {Monster, nameGenerator} from './classes.mjs'; // importar clase
 import fs from "fs"
 
 const prompt = msg => { // magia negra
@@ -9,10 +9,10 @@ const prompt = msg => { // magia negra
 	return s.slice(1);
 }
 
-function name_gen() {
-	return 0;
+// let userinput = prompt("weas: ");
+
+console.log()
+for (let i = 0; i < 50; i++) {
+	console.log("	"+nameGenerator());
 }
-
-let userinput = prompt("weas: ");
-
-console.log("text was: "+userinput);
+console.log()

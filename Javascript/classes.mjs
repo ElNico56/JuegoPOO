@@ -2,6 +2,30 @@ function randomInt(min, max) { // retorna un entero entre min y max inclusivo
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function choose(list) { // elegir un elemento random
+	return list[Math.floor(Math.random() * list.length)]
+}
+
+for (let i = 0; i <= (Date.now() % 100); i++) {
+	let _ = Math.random();
+} // dejamos que random se randomize :v
+
+export function nameGenerator() {
+	const consonants = ["M", "N", "P", "T", "K", "S", "W", "L", "J", "CH", "R", "KR", "TR", "PR"];
+	const vowels = ["A", "E", "I", "O", "U"];
+	let name = "";
+	for (let i = 0; i < randomInt(2, 4); i++) {
+		name += choose(consonants) + choose(vowels);
+	}
+	if (Math.random() < 0.25) {
+		name += "-";
+		for (let i = 0; i < randomInt(1, 2); i++) {
+			name += choose(consonants) + choose(vowels);
+		}
+	}
+	return name;
+}
+
 export class Monster {
 	name;
 	element; // uno de [fuego, agua, planta]
