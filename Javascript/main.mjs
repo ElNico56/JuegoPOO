@@ -1,15 +1,18 @@
-import { Ejemplo } from './classes.mjs'; // importar clase
-import readline from './imported_modules.js' // leer linea
+import { Monster } from './classes.mjs'; // importar clase
+import fs from "fs"
 
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout
-})
+const prompt = msg => { // magia negra
+	fs.writeSync(1, String(msg));
+	let s = '', buf = Buffer.alloc(1);
+	while (buf[0] - 10 && buf[0] - 13)
+		s += buf, fs.readSync(0, buf, 0, 1, 0);
+	return s.slice(1);
+}
 
-let objeto = new Ejemplo("a", "b"); // instancia
-objeto.print(); // metodo
-console.log(objeto.atributo_publico); // accesible porque es publico
-console.log(objeto.atributo_privado); // retorna undefined
+function name_gen() {
+	return 0;
+}
 
-let userInput = "";
-rl.question("What is your name\n", function (string) { userInput = string; rl.close(); });
+let userinput = prompt("weas: ");
+
+console.log("text was: "+userinput);
