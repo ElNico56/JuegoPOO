@@ -1,12 +1,57 @@
-class Ejemplo # clase
-	attr_accessor :atributo_publico # convierte este atributo en publico
-	def initialize(publico, privado) # constructor
-		@atributo_publico = publico # el @ funciona como self en python
-		@atributo_privado = privado
-	end # funciones, if, for, clases y demas terminan con un "end"
-	def print # metodo de instancia
-		# puts es como print pero con "\n" al final
-		puts "Este atributo es publico = #{@atributo_publico}"
-		puts "Este atributo es privado = #{@atributo_privado}"
-	end # end print
-end # end Ejemplo
+class Monsters
+	attr_accessor :name
+	attr_accessor :element
+	
+	def initialize(name, element)
+		@name = name
+		@element = element
+		@is_blocking = false
+		@hp = 100
+		@attack = rand(5..15)
+		@defense = rand(0..5)
+		@stamina = 5
+	end
+	
+	def weak_atack(enemy)
+		if @stamina > 0
+			amount = @attack + (rand(0..2) - 1)
+			if (@element == "AGUA" and enemy.element == "FUEGO")
+				amount += 5
+			end
+			if (@element == "FUEGO" and enemy.element == "PLANTA")
+				amount += 5
+			end
+			if (@element == "PLANTA" and enemy.element == "AGUA")
+				amount += 5
+			end
+			enemy.damage(amount)
+			@stamina -= 1
+		end
+	end
+	
+	def strong_atack(enemy)
+		if @stamina > 1
+			amount = @attack + (rand(9..11))
+			if (@element == "AGUA" and enemy.element == "FUEGO")
+				amount += 10
+			end
+			if (@element == "FUEGO" and enemy.element == "PLANTA")
+				amount += 10
+			end
+			if (@element == "PLANTA" and enemy.element == "AGUA")
+				amount += 10
+			end
+			enemy.damage(amount)
+			@stamina -= 2
+		end
+	end
+	
+	def damage(amount)
+	end
+	
+	def block()
+	end
+	
+	def rest()
+	end
+end
