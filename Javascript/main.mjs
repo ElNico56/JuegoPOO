@@ -144,6 +144,7 @@ while (true) {
 	let biome = choose(BIOMES); // bioma, esto define que tipo sale mas
 	let target = choose(TARGETS) + " DE " + nameGenerator(); // pura decoración
 	let enemiesLeft; // cuantos enemigos quedan en modo historia
+	let chosen; // que monstruo eliges para cada combate
 
 	let option = parseInt(prompt("1. Modo historia\n2. Modo arena\n3. Sobre el juego\n4. Salir\n > ")); prompt("");
 	if (isNaN(option)) option = 1;
@@ -175,12 +176,12 @@ while (true) {
 
 				console.log("\nElige cual de tus monstruos vas a usar contra el (1-" + team.length + "):");
 				for (let i = 0; i < team.length; i++) team[i].status();
-				let chosen = parseInt(prompt("\n > ")); prompt("") - 1;
+				chosen = parseInt(prompt("\n > ")) - 1; prompt("");
 				if (isNaN(chosen)) chosen = 0;
 				chosen = Math.max(0, Math.min(team.length - 1, option));
 
-				console.log("\nElegiste a:");
-				team[chosen].status();
+				console.log("\nElegiste a " + team[chosen].getName());
+				wait()
 
 				let outcome = battle(team[chosen], wildMonster);
 				if (!outcome) {
@@ -216,12 +217,12 @@ while (true) {
 
 				console.log("\nElige cual de tus monstruos vas a usar contra el (1-" + team.length + "):");
 				for (let i = 0; i < team.length; i++) team[i].status();
-				let chosen = parseInt(prompt("\n > ")); prompt("") - 1;
+				chosen = parseInt(prompt("\n > ")) - 1; prompt("");
 				if (isNaN(chosen)) chosen = 0;
 				chosen = Math.max(0, Math.min(team.length - 1, option));
 
-				console.log("\nElegiste a:");
-				team[chosen].status();
+				console.log("\nElegiste a " + team[chosen].getName());
+				wait()
 
 				let outcome = battle(team[chosen], wildMonster);
 				if (!outcome) {
