@@ -181,9 +181,6 @@ while (true) {
 				chosen = Math.max(1, Math.min(team.length, chosen));
 				chosen -= 1;
 
-				console.log("\nElegiste a " + team[chosen].getName());
-				wait()
-
 				let outcome = battle(team[chosen], wildMonster);
 				if (!outcome) {
 					console.log("\nLamentablemente, " + team[chosen].getName() + " ya no está con nosotros.");
@@ -222,9 +219,6 @@ while (true) {
 				if (isNaN(chosen)) chosen = 1;
 				chosen = Math.max(1, Math.min(team.length, chosen));
 				chosen -= 1;
-
-				console.log("\nElegiste a " + team[chosen].getName());
-				wait()
 
 				let outcome = battle(team[chosen], wildMonster);
 				if (!outcome) {

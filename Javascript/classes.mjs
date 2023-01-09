@@ -122,7 +122,7 @@ export class Monster {
 	}
 	rest(multiplier = 1) {
 		this.#stamina += 1 * multiplier;
-		this.#hp += 5 * multiplier;
+		this.#hp += 2 * multiplier;
 		if (this.#stamina > this.#maxStamina) {
 			this.#stamina = this.#maxStamina;
 		}
