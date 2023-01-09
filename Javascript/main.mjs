@@ -122,13 +122,13 @@ function battle(myself, enemy) {
 }
 
 console.log("\x1b[96m");
-console.log("██╗   ██╗███╗  ██╗███╗  ██╗ █████╗ ███╗   ███╗███████╗██████╗ ");
-console.log("██║   ██║████╗ ██║████╗ ██║██╔══██╗████╗ ████║██╔════╝██╔══██╗");
-console.log("██║   ██║██╔██╗██║██╔██╗██║███████║██╔████╔██║█████╗  ██║  ██║");
-console.log("██║   ██║██║╚████║██║╚████║██╔══██║██║╚██╔╝██║██╔══╝  ██║  ██║");
-console.log("╚██████╔╝██║ ╚███║██║ ╚███║██║  ██║██║ ╚═╝ ██║███████╗██████╔╝");
-console.log(" ╚═════╝ ╚═╝  ╚══╝╚═╝  ╚══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═════╝ ");
-console.log("\x1b[0m\nUNNAMED es un juego de peleas por turnos donde controlas");
+console.log("███╗   ███╗ █████╗ ███╗  ██╗ ██████╗████████╗███████╗██████╗  ██████╗██╗");
+console.log("████╗ ████║██╔══██╗████╗ ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗██╔════╝██║");
+console.log("██╔████╔██║██║  ██║██╔██╗██║╚█████╗    ██║   █████╗  ██████╔╝╚█████╗ ██║");
+console.log("██║╚██╔╝██║██║  ██║██║╚████║ ╚═══██╗   ██║   ██╔══╝  ██╔══██╗ ╚═══██╗╚═╝");
+console.log("██║ ╚═╝ ██║╚█████╔╝██║ ╚███║██████╔╝   ██║   ███████╗██║  ██║██████╔╝██╗");
+console.log("╚═╝     ╚═╝ ╚════╝ ╚═╝  ╚══╝╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝");
+console.log("\x1b[0m\nMONSTERS! es un juego de peleas por turnos donde controlas");
 console.log("un equipo de 4 monstruos contra una serie de monstruos");
 console.log("salvajes camino a tu destino.\n");
 console.log("Tu objetivo como su guía es darle ordenes a tus monstruos");
