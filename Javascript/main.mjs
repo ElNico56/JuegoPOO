@@ -1,5 +1,5 @@
 import { Monster, nameGenerator, choose, randomInt } from './classes.mjs'; // importar clase
-import fs from "fs"; // imports imports
+import fs from "fs"; // mas imports
 import { exit } from 'process'; // salir es un import, increible
 
 const prompt = msg => { // magia negra para pedir input
