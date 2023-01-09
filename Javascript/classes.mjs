@@ -2,7 +2,7 @@ export function randomInt(min, max) { // retorna un entero entre min y max inclu
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export function choose(list) { // elegir un elemento random
+export function choose(list) { // elegir un elemento random de una lista
 	return list[Math.floor(Math.random() * list.length)];
 }
 
@@ -10,11 +10,11 @@ for (let i = 0; i <= (Date.now() % 100); i++) {
 	let _ = Math.random();
 } // dejamos que random se randomize :v
 
-export function nameGenerator() {
+export function nameGenerator() { // generar nombres
 	const CONSONANTS = ["M", "N", "P", "T", "K", "S", "W", "L", "J", "CH", "R", "TR", "PR"];
 	const VOWELS = ["A", "E", "I", "O", "U", "AI", "EI", "OU", "OI"];
 	let name = "";
-	for (let i = 0; i < randomInt(2, 3); i++) {
+	for (let i = 0; i < randomInt(2, 3); i++) { // genera silabas, para asegurar que los nombres sean pronunciables
 		name += choose(CONSONANTS) + choose(VOWELS);
 	}
 	return name;
@@ -129,6 +129,7 @@ export class Monster {
 		if (this.#hp > this.#maxHp) {
 			this.#hp = this.#maxHp;
 		}
+		this.#isBlocking = false;
 	}
 	status() {
 		let color = "";
