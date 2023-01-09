@@ -42,43 +42,60 @@ export class Monster {
 		this.#maxStamina = 10;
 	}
 	getName() {
-		return this.#name;
+		let color = "";
+		if (this.#element == "FUEGO") {
+			color = "\x1b[91m";
+		} else if (this.#element == "PLANTA") {
+			color = "\x1b[92m";
+		} else {
+			color = "\x1b[94m";
+		}
+		return color + this.#name + "\x1b[0m";
 	}
 	getElement() {
 		return this.#element;
 	}
+	getHP() {
+		return this.#hp;
+	}
+	getStamina() {
+		return this.#stamina;
+	}
+	isDefeated() {
+		return this.#hp <= 0;
+	}
 	weakAttack(enemy) {
 		if (this.#stamina > 0) {
-			ammount = this.#attack + randomInt(-1, 1);
+			let amount = this.#attack + randomInt(-1, 1);
 			// fuego <-- planta <-- agua <-- fuego
 			if (this.#element == "Agua" && enemy.getElement() == "Fuego") {
-				ammount += 5;
+				amount += 5;
 			}
 			if (this.#element == "Fuego" && enemy.getElement() == "Planta") {
-				ammount += 5;
+				amount += 5;
 			}
 			if (this.#element == "Planta" && enemy.getElement() == "Agua") {
-				ammount += 5;
+				amount += 5;
 			}
-			enemy.damage(ammount);
+			enemy.damage(amount);
 			this.#stamina -= 1;
 		}
 		this.#isBlocking = false;
 	}
 	strongAttack(enemy) {
 		if (this.#stamina > 1) {
-			ammount = this.#attack + randomInt(9, 11);
+			let amount = this.#attack + randomInt(9, 11);
 			// fuego <-- planta <-- agua <-- fuego
 			if (this.#element == "Agua" && enemy.getElement() == "Fuego") {
-				ammount += 10;
+				amount += 10;
 			}
 			if (this.#element == "Fuego" && enemy.getElement() == "Planta") {
-				ammount += 10;
+				amount += 10;
 			}
 			if (this.#element == "Planta" && enemy.getElement() == "Agua") {
-				ammount += 10;
+				amount += 10;
 			}
-			enemy.damage(ammount);
+			enemy.damage(amount);
 			this.#stamina -= 2;
 		}
 		this.#isBlocking = false;
@@ -98,8 +115,10 @@ export class Monster {
 		this.#isBlocking = false;
 	}
 	block() {
-		this.#isBlocking = true;
-		this.#stamina -= 1;
+		if (this.#stamina > 0) {
+			this.#isBlocking = true;
+			this.#stamina -= 1;
+		}
 	}
 	rest(multiplier = 1) {
 		this.#stamina += 1 * multiplier;
@@ -120,9 +139,9 @@ export class Monster {
 		} else {
 			color = "\x1b[94m";
 		}
-		console.log(`\n~+~ ${this.#name} ~+~`);
-		console.log(` - Elemento: ${color}${this.#element}\x1b[0m`);
-		console.log(` - Ataque: ${this.#attack}`);
-		console.log(` - Defensa: ${this.#defense}`);
+		console.log("\n~+~ " + this.#name + " ~+~");
+		console.log(" - Elemento: " + color + this.#element + "\x1b[0m");
+		console.log(" - Ataque: " + this.#attack);
+		console.log(" - Defensa: " + this.#defense);
 	}
 }
