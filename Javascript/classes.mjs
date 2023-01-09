@@ -68,13 +68,13 @@ export class Monster {
 		if (this.#stamina > 0) {
 			let amount = this.#attack + randomInt(-1, 1);
 			// fuego <-- planta <-- agua <-- fuego
-			if (this.#element == "Agua" && enemy.getElement() == "Fuego") {
+			if (this.#element == "AGUA" && enemy.getElement() == "FUEGO") {
 				amount += 5;
 			}
-			if (this.#element == "Fuego" && enemy.getElement() == "Planta") {
+			if (this.#element == "FUEGO" && enemy.getElement() == "PLANTA") {
 				amount += 5;
 			}
-			if (this.#element == "Planta" && enemy.getElement() == "Agua") {
+			if (this.#element == "PLANTA" && enemy.getElement() == "AGUA") {
 				amount += 5;
 			}
 			enemy.damage(amount);
@@ -86,13 +86,13 @@ export class Monster {
 		if (this.#stamina > 1) {
 			let amount = this.#attack + randomInt(9, 11);
 			// fuego <-- planta <-- agua <-- fuego
-			if (this.#element == "Agua" && enemy.getElement() == "Fuego") {
+			if (this.#element == "AGUA" && enemy.getElement() == "FUEGO") {
 				amount += 10;
 			}
-			if (this.#element == "Fuego" && enemy.getElement() == "Planta") {
+			if (this.#element == "FUEGO" && enemy.getElement() == "PLANTA") {
 				amount += 10;
 			}
-			if (this.#element == "Planta" && enemy.getElement() == "Agua") {
+			if (this.#element == "PLANTA" && enemy.getElement() == "AGUA") {
 				amount += 10;
 			}
 			enemy.damage(amount);

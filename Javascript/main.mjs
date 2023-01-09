@@ -176,9 +176,10 @@ while (true) {
 
 				console.log("\nElige cual de tus monstruos vas a usar contra el (1-" + team.length + "):");
 				for (let i = 0; i < team.length; i++) team[i].status();
-				chosen = parseInt(prompt("\n > ")) - 1; prompt("");
-				if (isNaN(chosen)) chosen = 0;
-				chosen = Math.max(0, Math.min(team.length - 1, option));
+				chosen = parseInt(prompt("\n > ")); prompt("");
+				if (isNaN(chosen)) chosen = 1;
+				chosen = Math.max(1, Math.min(team.length, chosen));
+				chosen -= 1;
 
 				console.log("\nElegiste a " + team[chosen].getName());
 				wait()
@@ -217,9 +218,10 @@ while (true) {
 
 				console.log("\nElige cual de tus monstruos vas a usar contra el (1-" + team.length + "):");
 				for (let i = 0; i < team.length; i++) team[i].status();
-				chosen = parseInt(prompt("\n > ")) - 1; prompt("");
-				if (isNaN(chosen)) chosen = 0;
-				chosen = Math.max(0, Math.min(team.length - 1, option));
+				chosen = parseInt(prompt("\n > ")); prompt("");
+				if (isNaN(chosen)) chosen = 1;
+				chosen = Math.max(1, Math.min(team.length, chosen));
+				chosen -= 1;
 
 				console.log("\nElegiste a " + team[chosen].getName());
 				wait()
