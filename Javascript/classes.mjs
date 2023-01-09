@@ -1,11 +1,9 @@
-import { throws } from "assert";
-
 export function randomInt(min, max) { // retorna un entero entre min y max inclusivo
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export function choose(list) { // elegir un elemento random
-	return list[Math.floor(Math.random() * list.length)]
+	return list[Math.floor(Math.random() * list.length)];
 }
 
 for (let i = 0; i <= (Date.now() % 100); i++) {
@@ -13,18 +11,18 @@ for (let i = 0; i <= (Date.now() % 100); i++) {
 } // dejamos que random se randomize :v
 
 export function nameGenerator() {
-	const consonants = ["M", "N", "P", "T", "K", "S", "W", "L", "J", "CH", "R", "TR", "PR"];
-	const vowels = ["A", "E", "I", "O", "U", "AI", "EI", "OU", "OI"];
+	const CONSONANTS = ["M", "N", "P", "T", "K", "S", "W", "L", "J", "CH", "R", "TR", "PR"];
+	const VOWELS = ["A", "E", "I", "O", "U", "AI", "EI", "OU", "OI"];
 	let name = "";
 	for (let i = 0; i < randomInt(2, 3); i++) {
-		name += choose(consonants) + choose(vowels);
+		name += choose(CONSONANTS) + choose(VOWELS);
 	}
 	return name;
 }
 
 export class Monster {
 	#name;
-	element; // uno de [fuego, agua, planta]
+	#element; // uno de [fuego, agua, planta]
 	#isBlocking;
 	#hp;
 	#maxHp;
@@ -34,7 +32,7 @@ export class Monster {
 	#maxStamina;
 	constructor(name, element, level = 0) {
 		this.#name = name;
-		this.element = element;
+		this.#element = element;
 		this.#isBlocking = false;
 		this.#hp = 100 + 25 * level;
 		this.#maxHp = 100 + 25 * level;
@@ -43,16 +41,23 @@ export class Monster {
 		this.#stamina = 5;
 		this.#maxStamina = 10;
 	}
+	getName() {
+		return this.#name;
+	}
+	getElement() {
+		return this.#element;
+	}
 	weakAttack(enemy) {
 		if (this.#stamina > 0) {
 			ammount = this.#attack + randomInt(-1, 1);
-			if (this.element == "Agua" && enemy.element == "Fuego") { // fuego <-- planta <-- agua <-- fuego
+			// fuego <-- planta <-- agua <-- fuego
+			if (this.#element == "Agua" && enemy.getElement() == "Fuego") {
 				ammount += 5;
 			}
-			if (this.element == "Fuego" && enemy.element == "Planta") { // fuego <-- planta <-- agua <-- fuego
+			if (this.#element == "Fuego" && enemy.getElement() == "Planta") {
 				ammount += 5;
 			}
-			if (this.element == "Planta" && enemy.element == "Agua") { // fuego <-- planta <-- agua <-- fuego
+			if (this.#element == "Planta" && enemy.getElement() == "Agua") {
 				ammount += 5;
 			}
 			enemy.damage(ammount);
@@ -63,13 +68,14 @@ export class Monster {
 	strongAttack(enemy) {
 		if (this.#stamina > 1) {
 			ammount = this.#attack + randomInt(9, 11);
-			if (this.element == "Agua" && enemy.element == "Fuego") { // fuego <-- planta <-- agua <-- fuego
+			// fuego <-- planta <-- agua <-- fuego
+			if (this.#element == "Agua" && enemy.getElement() == "Fuego") {
 				ammount += 10;
 			}
-			if (this.element == "Fuego" && enemy.element == "Planta") { // fuego <-- planta <-- agua <-- fuego
+			if (this.#element == "Fuego" && enemy.getElement() == "Planta") {
 				ammount += 10;
 			}
-			if (this.element == "Planta" && enemy.element == "Agua") { // fuego <-- planta <-- agua <-- fuego
+			if (this.#element == "Planta" && enemy.getElement() == "Agua") {
 				ammount += 10;
 			}
 			enemy.damage(ammount);
@@ -107,23 +113,16 @@ export class Monster {
 	}
 	status() {
 		let color = "";
-		if (this.element == "FUEGO") {
+		if (this.#element == "FUEGO") {
 			color = "\x1b[91m";
-		} else if (this.element == "PLANTA") {
+		} else if (this.#element == "PLANTA") {
 			color = "\x1b[92m";
 		} else {
 			color = "\x1b[94m";
 		}
 		console.log(`\n~+~ ${this.#name} ~+~`);
-		console.log(` - Elemento: ${color}${this.element}\x1b[0m`);
+		console.log(` - Elemento: ${color}${this.#element}\x1b[0m`);
 		console.log(` - Ataque: ${this.#attack}`);
 		console.log(` - Defensa: ${this.#defense}`);
-	}
-}
-
-export class World {
-	#biome;
-	constructor(biome) {
-		this.#biome = biome
 	}
 }
