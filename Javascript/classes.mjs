@@ -8,7 +8,7 @@ export function choose(list) { // elegir un elemento random de una lista
 
 for (let i = 0; i <= (Date.now() % 100); i++) {
 	let _ = Math.random();
-} // dejamos que random se randomize :v
+} // dejamos que random se randomize
 
 export function nameGenerator() { // generar nombres
 	const CONSONANTS = ["M", "N", "P", "T", "K", "S", "W", "L", "J", "CH", "R", "TR", "PR"];
