@@ -10,6 +10,10 @@ const prompt = msg => { // magia negra para pedir input
 	return s.slice(1);
 }
 
+for (let i = 0; i <= (Date.now() % 100); i++) {
+	let _ = Math.random();
+} // dejamos que random se randomize
+
 function wait() { // esto se reutiliza bastante
 	prompt("\nPresiona ENTER para continuar...\n"); prompt("");
 }
