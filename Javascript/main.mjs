@@ -248,7 +248,6 @@ while (true) {
 			console.log("\x1b[2J\x1b[1;1H--- CREDITOS ---\n");
 			console.log("Codigo: Nicolas Espejo");
 			console.log("Diseño: Nicolas Espejo, Gohan Vergara");
-			console.log("\n--- CREDITOR ---");
 			wait();
 			break;
 		case 4:
