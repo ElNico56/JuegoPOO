@@ -6,33 +6,32 @@ def name_generator()
 	consonants = ["M", "N", "P", "T", "K", "S", "W", "L", "J", "CH", "R", "TR", "PR"]
 	vowels = ["A", "E", "I", "O", "U", "AI", "EI", "OU", "OI"]
 	name = ""
-	for i in 0..rand(2..3) do
+	for i in 0..rand(2..3)
 		name += choose(consonants) + choose(vowels)
 	end
 	return name
-end 
+end
 
 class Monster
-	
-	def initialize(name, element, level = 0)
+	def initialize(name, element)
 		@name = name
 		@element = element
 		@is_blocking = false
-		@hp = 100 + 25 * level
-		@max_hp = 100 + 25 * level
-		@attack = rand(5..15) + level
-		@defense = rand(0..5) + level
+		@hp = 100
+		@max_hp = 100
+		@attack = rand(5..15)
+		@defense = rand(0..5)
 		@stamina = 5
 		@max_stamina = 10
 	end
 	
 	def get_name()
 		color = ""
-		if @element == 'FUEGO'
+		if @element == "FUEGO"
 			color = "\x1b[91m"
-		elsif @element == 'PLANTA'
+		elsif @element == "PLANTA"
 			color = "\x1b[92m"
-		elsif @element == 'AGUA'
+		elsif @element == "AGUA"
 			color = "\x1b[94m"
 		end
 		return color + @name + "\x1b[0m"
@@ -57,17 +56,17 @@ class Monster
 	def weak_attack(enemy)
 		if @stamina > 0
 			amount = @attack + rand(-1..1)
-			if (@element == 'AGUA' and enemy.get_element == 'FUEGO')
+			if (@element == "AGUA" and enemy.get_element == "FUEGO")
 				amount += 5
 			end
-			if (@element == 'FUEGO' and enemy.get_element == 'PLANTA')
+			if (@element == "FUEGO" and enemy.get_element == "PLANTA")
 				amount += 5
-			end    
-			if (@element == 'PLANTA' and enemy.get_element == 'AGUA')
+			end
+			if (@element == "PLANTA" and enemy.get_element == "AGUA")
 				amount += 5
 			end
 			enemy.damage(amount)
-			@stamina -= 1   
+			@stamina -= 1
 		end
 		@is_blocking = false
 	end
@@ -75,13 +74,13 @@ class Monster
 	def strong_attack(enemy)
 		if @stamina > 1
 			amount = @attack + rand(9..11)
-			if (@element == 'AGUA' and enemy.get_element == 'FUEGO')
+			if (@element == "AGUA" and enemy.get_element == "FUEGO")
 				amount += 10
 			end
-			if (@element == 'FUEGO' and enemy.get_element == 'PLANTA')
+			if (@element == "FUEGO" and enemy.get_element == "PLANTA")
 				amount += 10
-			end    
-			if (@element == 'PLANTA' and enemy.get_element == 'AGUA')
+			end
+			if (@element == "PLANTA" and enemy.get_element == "AGUA")
 				amount += 10
 			end
 			enemy.damage(amount)
@@ -101,14 +100,14 @@ class Monster
 			if @hp < 0
 				@hp = 0
 			end
-		end 
+		end
 	end
 	
 	def block()
 		if @stamina > 0
 			@is_blocking = true
 			@stamina -= 1
-		end 
+		end
 	end
 	
 	def rest(multiplier = 1)
@@ -125,11 +124,11 @@ class Monster
 	
 	def status()
 		color = ""
-		if @element == 'FUEGO'
+		if @element == "FUEGO"
 			color = "\x1b[91m"
-		elsif @element == 'PLANTA'
+		elsif @element == "PLANTA"
 			color = "\x1b[92m"
-		elsif @element == 'AGUA'
+		elsif @element == "AGUA"
 			color = "\x1b[94m"
 		end
 		puts("\n~+~ " + @name + " ~+~")

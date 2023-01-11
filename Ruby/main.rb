@@ -10,7 +10,7 @@ def wait()
 end
 
 def enemy_move(myself, enemy, choice)
-	case(choice)
+	case (choice)
 	when 1
 		puts(enemy.get_name + " usa ATAQUE DEBIL")
 		enemy.weak_attack(myself)
@@ -43,11 +43,8 @@ def battle(myself, enemy)
 		puts(enemy.get_name + "\n HP: " + enemy.get_hp.to_s + "\n STAMINA: " + enemy.get_stamina.to_s)
 		puts("\nTus posibles acciones son:")
 		option = prompt("1. Ataque debil\n2. Ataque fuerte\n3. Bloquear ataque\n4. Descansar\n5. Info\n > ").to_i
-		if option.to_f.nan?
-			option = 1
-		end
 		enemy_choice = 0
-		case(option)
+		case (option)
 		when 1
 			puts("\x1b[2J\x1b[1;1H--------------- BATALLA ---------------\n\n")
 			puts(myself.get_name + " usa ATAQUE DEBIL")
@@ -126,12 +123,8 @@ while true
 	chosen = 0
 	
 	option = prompt("1. Modo historia\n2. Modo arena\n3. Sobre el juego\n4. Salir\n > ").to_i
-	if option.to_f.nan?
-		option = 1
-	end
-	option = [1, [4, option].min].max
 	
-	case(option)
+	case (option)
 	when 1
 		puts("\x1b[2J\x1b[1;1HElige la dificultad:")
 		enemies_left = prompt("\n1. Facil\n2. Dificil\n > ").to_i
@@ -142,7 +135,7 @@ while true
 		enemies_left *= 5
 		
 		puts("\x1b[2J\x1b[1;1HTu equipo consiste de:")
-		for monster in team do
+		for monster in team
 			monster.status()
 		end
 		
@@ -153,14 +146,14 @@ while true
 		while enemies_left > 0
 			wild_element = choose(elements)
 			if rand() > 0.25
-				if biome == 'DESERT'
-					wild_element = 'FUEGO'
+				if biome == "DESERT"
+					wild_element = "FUEGO"
 				end
-				if biome == 'BOSQUE'
-					wild_element = 'PLANTA'
+				if biome == "BOSQUE"
+					wild_element = "PLANTA"
 				end
-				if biome == 'PANTANO'
-					wild_element = 'AGUA'
+				if biome == "PANTANO"
+					wild_element = "AGUA"
 				end
 			end
 			wild_monster = Monster.new(name_generator(), wild_element)
@@ -168,7 +161,7 @@ while true
 			wild_monster.status()
 			
 			puts("\nElige cual de tus monstruos vas a usar contra el (1-" + team.length().to_s + "):")
-			for monster in team do
+			for monster in team
 				monster.status()
 			end
 			chosen = prompt("\n > ").to_i
@@ -185,7 +178,7 @@ while true
 			end
 			
 			wait()
-			if(team.length() == 0)
+			if (team.length() == 0)
 				puts("\nSin tus monstruos, acabas sucumbiendo a los monstruos salvajes.")
 				enemies_left = 0
 				exit
@@ -197,7 +190,7 @@ while true
 	when 2
 		enemies_left = 0
 		puts("\x1b[2J\x1b[1;1HTu equipo consiste de:")
-		for monster in team do
+		for monster in team
 			monster.status()
 		end
 		puts("\nEstás en un " + biome + ", tienes un largo camino por delante.")
@@ -210,7 +203,7 @@ while true
 			wild_monster.status()
 			
 			puts("\nElige cual de tus monstruos vas a usar contra el (1-" + team.length().to_s + "):")
-			for monster in team do
+			for monster in team
 				monster.status()
 			end
 			chosen = prompt("\n > ").to_i
@@ -221,7 +214,7 @@ while true
 			chosen -= 1
 			
 			outcome = battle(team[chosen], wild_monster)
-			if(not outcome)
+			if (not outcome)
 				puts("\nLamentablemente, " + team[chosen].getName() + " ya no está con nosotros.")
 				team.delete_at(chosen)
 			end
@@ -229,7 +222,7 @@ while true
 			enemies_left += 1
 			puts("\nHas enfrentado a " + enemies_left.to_s + " monstruos")
 			wait()
-			if(team.length == 0)
+			if (team.length == 0)
 				puts("\nSin tus monstruos, acabas sucumbiendo a los monstruos salvajes.")
 				enemies_left = 0
 				exit
@@ -251,5 +244,3 @@ while true
 		exit
 	end
 end
-
-

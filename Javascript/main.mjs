@@ -63,8 +63,6 @@ function battle(myself, enemy) {
 		// parseInt convierte strings a enteros
 		let option = parseInt(prompt("1. Ataque debil\n2. Ataque fuerte\n3. Bloquear ataque\n4. Descansar\n5. Info\n > ")); prompt("");
 		// opción tiene que ser un numero entre 1 y 5
-		if (isNaN(option)) option = 1; // convierte a numero si se ingresó basura
-		option = Math.max(1, Math.min(5, option)); // limita entre 1 y 5
 		let enemyChoice; // valor random que representa la acción del oponente
 		switch (option) {
 			case 1:
@@ -151,8 +149,6 @@ while (true) {
 	let chosen; // que monstruo eliges para cada combate
 
 	let option = parseInt(prompt("1. Modo historia\n2. Modo arena\n3. Sobre el juego\n4. Salir\n > ")); prompt("");
-	if (isNaN(option)) option = 1;
-	option = Math.max(1, Math.min(4, option));
 
 	switch (option) {
 		case 1:

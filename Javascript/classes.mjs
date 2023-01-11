@@ -26,14 +26,14 @@ export class Monster {
 	#defense;
 	#stamina;
 	#maxStamina;
-	constructor(name, element, level = 0) {
+	constructor(name, element) {
 		this.#name = name;
 		this.#element = element;
 		this.#isBlocking = false;
-		this.#hp = 100 + 25 * level;
-		this.#maxHp = 100 + 25 * level;
-		this.#attack = randomInt(5, 10) + level;
-		this.#defense = randomInt(5, 10) + level;
+		this.#hp = 100;
+		this.#maxHp = 100;
+		this.#attack = randomInt(5, 10);
+		this.#defense = randomInt(5, 10);
 		this.#stamina = 5;
 		this.#maxStamina = 10;
 	}
