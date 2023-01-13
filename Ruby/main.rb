@@ -238,7 +238,7 @@ while true
 	when 3
 		puts("\x1b[2J\x1b[1;1H--- CREDITOS ---\n")
 		puts("Codigo: Gohan Vergara")
-		puts("Diseño: Nicolas Espejo, Gohan Vergara")
+		puts("Diseño: Nicolas Espejo, Gohan Vergara, Brayan Garcia")
 		wait()
 	when 4
 		puts("\x1b[2J\x1b[1;1HFIN\n")
