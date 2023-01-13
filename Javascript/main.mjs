@@ -133,8 +133,9 @@ console.log("╚═╝     ╚═╝ ╚════╝ ╚═╝  ╚══╝�
 console.log("\x1b[0m\nMONSTERS! es un juego de peleas por turnos donde controlas");
 console.log("un equipo de 4 monstruos contra una serie de monstruos");
 console.log("salvajes camino a tu destino.\n");
-console.log("Tu objetivo como su guía es darle ordenes a tus monstruos");
-console.log("para poder derrotar a cada monstruo salvaje.\n");
+console.log("Tu objetivo como su guía es darle ordenes a tus monstruos.");
+console.log("Atacar para debilitar a tus enemigos, bloquear sus ataques o descansar para recuperar fuerzas");
+console.log("para poder derrotar a cada enemigo.\n");
 
 while (true) {
 	// datos de la partida

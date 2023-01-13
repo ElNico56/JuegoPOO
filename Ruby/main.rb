@@ -108,8 +108,9 @@ puts("╚═╝     ╚═╝ ╚════╝ ╚═╝  ╚══╝╚═�
 puts("\x1b[0m\nMONSTERS! es un juego de peleas por turnos donde controlas")
 puts("un equipo de 4 monstruos contra una serie de monstruos")
 puts("salvajes camino a tu destino.\n\n")
-puts("Tu objetivo como su guía es darle ordenes a tus monstruos")
-puts("para poder derrotar a cada monstruo salvaje.\n\n")
+puts("Tu objetivo como su guía es darle ordenes a tus monstruos.")
+puts("Atacar para debilitar a tus enemigos, bloquear sus ataques o descansar para recuperar fuerzas")
+puts("para poder derrotar a cada enemigo.\n\n")
 
 while true
 	team = []
